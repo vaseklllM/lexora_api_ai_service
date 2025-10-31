@@ -3,11 +3,7 @@ import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 export class FillCardDataDto {
   @IsString()
   @IsOptional()
-  textInKnownLanguage?: string;
-
-  @IsString()
-  @IsOptional()
-  textInLearningLanguage?: string;
+  word?: string;
 
   @IsString()
   @IsNotEmpty()
