@@ -4,15 +4,13 @@ import { readFileSync } from 'fs';
 
 @Injectable()
 export class VertexProvider implements OnModuleInit {
-  private readonly _keyFile: string =
-    process.env.GOOGLE_VERTEX_AI_JSON_PATH ?? './keys/lexora-vertex-ai.json';
+  private readonly _keyFile: string = process.env.GOOGLE_VERTEX_AI_JSON_PATH!;
   private readonly _location: string =
     process.env.GOOGLE_VERTEX_AI_JSON_PATH_REGION || 'europe-west4';
 
   private _vertex: VertexAI;
 
   private getProjectId(): string {
-    console.log(process.env.GOOGLE_VERTEX_AI_JSON_PATH);
     const credentials = JSON.parse(readFileSync(this._keyFile, 'utf8'));
     return credentials.project_id;
   }

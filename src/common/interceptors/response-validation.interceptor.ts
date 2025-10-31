@@ -18,10 +18,8 @@ export class ResponseValidationInterceptor implements NestInterceptor {
   intercept(_context: ExecutionContext, next: CallHandler): Observable<any> {
     return next.handle().pipe(
       switchMap(async (data: unknown) => {
-        // Перетворюємо plain object в instance класу DTO
         const dtoInstance = plainToInstance(this.responseDto, data);
 
-        // Валідуємо респонс
         const errors = await validate(dtoInstance);
 
         if (errors.length > 0) {
