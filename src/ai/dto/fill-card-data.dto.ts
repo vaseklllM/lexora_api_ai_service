@@ -1,8 +1,8 @@
-import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class FillCardDataDto {
   @IsString()
-  @IsOptional()
+  @IsNotEmpty()
   word?: string;
 
   @IsString()

@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { VertexModule } from './vertex/vertex.module';
 import { AiModule } from './ai/ai.module';
 import { JwtModule } from '@nestjs/jwt';
+import { JwtStrategy } from './common/strategies/jwt.strategy';
 
 @Module({
   imports: [
@@ -18,5 +19,6 @@ import { JwtModule } from '@nestjs/jwt';
     VertexModule,
   ],
   controllers: [AppController],
+  providers: [JwtStrategy],
 })
 export class AppModule {}
